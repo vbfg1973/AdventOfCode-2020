@@ -8,10 +8,11 @@ namespace AdventOfCode.Cli
         static void Main(string[] args)
         {
             var filename = args[0];
-            
+
             var d = new Day01();
-            var answer = d.Run(filename);
-            Console.WriteLine(answer);
+            Console.WriteLine(d.Run(2, filename));
+
+            Console.WriteLine(d.Run(3, filename));
         }
     }
 }

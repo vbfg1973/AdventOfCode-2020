@@ -17,23 +17,47 @@ namespace AdventOfCode.Tests.Generators
             }
         };
 
-        public static IEnumerable<object[]> FinalSumData => new List<object[]>
+        public static IEnumerable<object[]> FinalSumData_Part01 => new List<object[]>
         {
             new object[]
             {
+                2, 
                 _data,
                 new int[] {1721, 299},
                 2020
             }
         };
         
-        public static IEnumerable<object[]> FinalProductData => new List<object[]>
+        public static IEnumerable<object[]> FinalSumData_Part02 => new List<object[]>
         {
             new object[]
             {
+                3, 
+                _data,
+                new int[] {979, 366, 675},
+                2020
+            }
+        };
+        
+        public static IEnumerable<object[]> FinalProductData_Part01 => new List<object[]>
+        {
+            new object[]
+            {
+                2,
                 _data,
                 2020,
                 514579
+            }
+        };
+        
+        public static IEnumerable<object[]> FinalProductData_Part02 => new List<object[]>
+        {
+            new object[]
+            {
+                3,
+                _data,
+                2020,
+                241861950
             }
         };
     }

@@ -10,18 +10,19 @@ namespace AdventOfCode.Tests
     {
         [Theory]
         [MemberData(nameof(DayOneDataGenerator.CombinationData), MemberType = typeof(DayOneDataGenerator))]
-        public void CombinationsTests(int size, int count, IEnumerable<int> numbers)
+        public void CombinationsTests(int combinationSize, int count, IEnumerable<int> numbers)
         {
-            var res = numbers.GetKCombs(size);
+            var res = numbers.GetKCombs(combinationSize);
             Assert.Equal(count, res.Count());
         }
 
         [Theory]
-        [MemberData(nameof(DayOneDataGenerator.FinalSumData), MemberType = typeof(DayOneDataGenerator))]
-        public void SummingTests(IEnumerable<int> numbers, IEnumerable<int> expectedCombination, int finalSum)
+        [MemberData(nameof(DayOneDataGenerator.FinalSumData_Part01), MemberType = typeof(DayOneDataGenerator))]
+        [MemberData(nameof(DayOneDataGenerator.FinalSumData_Part02), MemberType = typeof(DayOneDataGenerator))]
+        public void SummingTests(int combinationSize, IEnumerable<int> numbers, IEnumerable<int> expectedCombination, int finalSum)
         {
             var expenseReport = new ExpenseReport();
-            var res = expenseReport.GetSummableTo(numbers, finalSum);
+            var res = expenseReport.GetSummableTo(numbers, finalSum, combinationSize);
             
             Assert.Equal(expectedCombination.Count(), res.Count());
 
@@ -34,11 +35,12 @@ namespace AdventOfCode.Tests
         }
         
         [Theory]
-        [MemberData(nameof(DayOneDataGenerator.FinalProductData), MemberType = typeof(DayOneDataGenerator))]
-        public void ProductTests(IEnumerable<int> numbers, int finalSum, int finalProduct)
+        [MemberData(nameof(DayOneDataGenerator.FinalProductData_Part01), MemberType = typeof(DayOneDataGenerator))]
+        [MemberData(nameof(DayOneDataGenerator.FinalProductData_Part02), MemberType = typeof(DayOneDataGenerator))]
+        public void ProductTests(int combinationSize, IEnumerable<int> numbers, int finalSum, int finalProduct)
         {
             var expenseReport = new ExpenseReport();
-            var res = expenseReport.GetProduct(numbers, finalSum);
+            var res = expenseReport.GetProduct(numbers, finalSum, combinationSize);
 
             Assert.Equal(finalProduct, res);
         }
