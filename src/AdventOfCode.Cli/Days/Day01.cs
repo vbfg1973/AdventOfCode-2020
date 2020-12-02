@@ -7,7 +7,7 @@ namespace AdventOfCode.Cli.Days
 {
     public class Day01
     {
-        private ExpenseReport _expenseReport;
+        private readonly ExpenseReport _expenseReport;
 
         public Day01()
         {

@@ -19,21 +19,19 @@ namespace AdventOfCode.Tests
         [Theory]
         [MemberData(nameof(DayOneDataGenerator.FinalSumData_Part01), MemberType = typeof(DayOneDataGenerator))]
         [MemberData(nameof(DayOneDataGenerator.FinalSumData_Part02), MemberType = typeof(DayOneDataGenerator))]
-        public void SummingTests(int combinationSize, IEnumerable<int> numbers, IEnumerable<int> expectedCombination, int finalSum)
+        public void SummingTests(int combinationSize, IEnumerable<int> numbers, IEnumerable<int> expectedCombination,
+            int finalSum)
         {
             var expenseReport = new ExpenseReport();
             var res = expenseReport.GetSummableTo(numbers, finalSum, combinationSize);
-            
+
             Assert.Equal(expectedCombination.Count(), res.Count());
 
-            foreach (var i in expectedCombination)
-            {
-                Assert.Contains(i, res);
-            }
-            
+            foreach (var i in expectedCombination) Assert.Contains(i, res);
+
             Assert.Equal(finalSum, res.Sum());
         }
-        
+
         [Theory]
         [MemberData(nameof(DayOneDataGenerator.FinalProductData_Part01), MemberType = typeof(DayOneDataGenerator))]
         [MemberData(nameof(DayOneDataGenerator.FinalProductData_Part02), MemberType = typeof(DayOneDataGenerator))]

@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AdventOfCode.Tests.Generators
 {
     public static class DayOneDataGenerator
     {
-        private static int[] _data = {1721, 979, 366, 299, 675, 1456};
+        private static readonly int[] _data = {1721, 979, 366, 299, 675, 1456};
 
         public static IEnumerable<object[]> CombinationData => new List<object[]>
         {
@@ -21,24 +20,24 @@ namespace AdventOfCode.Tests.Generators
         {
             new object[]
             {
-                2, 
+                2,
                 _data,
-                new int[] {1721, 299},
+                new[] {1721, 299},
                 2020
             }
         };
-        
+
         public static IEnumerable<object[]> FinalSumData_Part02 => new List<object[]>
         {
             new object[]
             {
-                3, 
+                3,
                 _data,
-                new int[] {979, 366, 675},
+                new[] {979, 366, 675},
                 2020
             }
         };
-        
+
         public static IEnumerable<object[]> FinalProductData_Part01 => new List<object[]>
         {
             new object[]
@@ -49,7 +48,7 @@ namespace AdventOfCode.Tests.Generators
                 514579
             }
         };
-        
+
         public static IEnumerable<object[]> FinalProductData_Part02 => new List<object[]>
         {
             new object[]

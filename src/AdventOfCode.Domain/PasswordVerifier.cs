@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 
 namespace AdventOfCode.Domain
 {
@@ -16,7 +14,7 @@ namespace AdventOfCode.Domain
 
         public bool IsPositionalValidPassword(int posA, int posB, char c, string password)
         {
-            return password[posA - 1] == c ^ password[posB - 1] == c;
+            return (password[posA - 1] == c) ^ (password[posB - 1] == c);
         }
 
         public void ParseRule(out int min, out int max, out char c, out string password, string ruleDescription)
@@ -39,7 +37,7 @@ namespace AdventOfCode.Domain
         {
             var rules = File.ReadAllLines(filename);
 
-            int runningTotal = 0;
+            var runningTotal = 0;
             foreach (var rule in rules)
             {
                 int min, max;
@@ -48,20 +46,17 @@ namespace AdventOfCode.Domain
 
                 ParseRule(out min, out max, out c, out password, rule);
 
-                if (IsMinMaxValidPassword(min, max, c, password))
-                {
-                    runningTotal++;
-                }
+                if (IsMinMaxValidPassword(min, max, c, password)) runningTotal++;
             }
 
             return runningTotal;
         }
-        
+
         public int CountValidInFilePositional(string filename)
         {
             var rules = File.ReadAllLines(filename);
 
-            int runningTotal = 0;
+            var runningTotal = 0;
             foreach (var rule in rules)
             {
                 int min, max;
@@ -70,10 +65,7 @@ namespace AdventOfCode.Domain
 
                 ParseRule(out min, out max, out c, out password, rule);
 
-                if (IsPositionalValidPassword(min, max, c, password))
-                {
-                    runningTotal++;
-                }
+                if (IsPositionalValidPassword(min, max, c, password)) runningTotal++;
             }
 
             return runningTotal;

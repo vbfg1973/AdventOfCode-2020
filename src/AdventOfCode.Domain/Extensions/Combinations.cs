@@ -6,12 +6,13 @@ namespace AdventOfCode.Domain
 {
     public static class Combinations
     {
-        public static IEnumerable<IEnumerable<T>> GetKCombs<T>(this IEnumerable<T> list, int length) where T : IComparable
+        public static IEnumerable<IEnumerable<T>> GetKCombs<T>(this IEnumerable<T> list, int length)
+            where T : IComparable
         {
-            if (length == 1) return list.Select(t => new T[] { t });
+            if (length == 1) return list.Select(t => new[] {t});
             return GetKCombs(list, length - 1)
-                .SelectMany(t => list.Where(o => o.CompareTo(t.Last()) > 0), 
-                    (t1, t2) => t1.Concat(new T[] { t2 }));
+                .SelectMany(t => list.Where(o => o.CompareTo(t.Last()) > 0),
+                    (t1, t2) => t1.Concat(new[] {t2}));
         }
     }
 }

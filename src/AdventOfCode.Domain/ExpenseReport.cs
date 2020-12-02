@@ -16,10 +16,7 @@ namespace AdventOfCode.Domain
         {
             var res = GetSummableTo(list, finalSum, combinationSize).ToList();
 
-            if (res.Count() >= 2)
-            {
-                return res.Aggregate(1, (acc, listItem) => acc * listItem);
-            }
+            if (res.Count() >= 2) return res.Aggregate(1, (acc, listItem) => acc * listItem);
 
             throw new ArgumentException($"No combinations found that sum top {finalSum}");
         }
