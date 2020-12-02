@@ -1,5 +1,6 @@
 ﻿using System;
 using AdventOfCode.Cli.Days;
+using AdventOfCode.Domain;
 
 namespace AdventOfCode.Cli
 {
@@ -9,10 +10,12 @@ namespace AdventOfCode.Cli
         {
             var filename = args[0];
 
-            var d = new Day01();
-            Console.WriteLine(d.Run(2, filename));
-
-            Console.WriteLine(d.Run(3, filename));
+            var passwordVerified = new PasswordVerifier();
+            var result = passwordVerified.CountValidInFileMinMax(filename);
+            Console.WriteLine(result);
+            
+            var resultPositional = passwordVerified.CountValidInFilePositional(filename);
+            Console.WriteLine(resultPositional);
         }
     }
 }
