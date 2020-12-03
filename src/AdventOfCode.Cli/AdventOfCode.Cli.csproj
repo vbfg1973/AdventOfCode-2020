@@ -4,6 +4,15 @@
     <ProjectReference Include="..\AdventOfCode.Domain\AdventOfCode.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="input\day03.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="input\Day03.Trees.Part01.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
