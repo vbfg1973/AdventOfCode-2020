@@ -3,7 +3,7 @@ using Xunit;
 
 namespace AdventOfCode.Tests
 {
-    public class AdventOfCode_Day2Tests
+    public class AdventOfCode_Day02Tests
     {
         [Theory]
         [InlineData(1, 3, 'a', "abcde", true)]

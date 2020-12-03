@@ -6,7 +6,7 @@ using Xunit;
 
 namespace AdventOfCode.Tests
 {
-    public class AdventOfCode_Day1Tests
+    public class AdventOfCode_Day01Tests
     {
         [Theory]
         [MemberData(nameof(DayOneDataGenerator.CombinationData), MemberType = typeof(DayOneDataGenerator))]
