@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AdventOfCode.Domain;
 using AdventOfCode.Domain.Day03;
+using AdventOfCode.Domain.Day04;
 
 namespace AdventOfCode.Cli
 {
