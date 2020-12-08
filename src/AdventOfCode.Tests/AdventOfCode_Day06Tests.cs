@@ -35,5 +35,67 @@ namespace AdventOfCode.Tests
             var res = StringUtils.StripAllWhiteSpaceExceptNewlines(input);
             Assert.Equal(expected, res);
         }
+
+        [Theory]
+        [InlineData("abc", 3)]
+        [InlineData("a b c", 3)]
+        [InlineData("a\nb\n\tc", 3)]
+        [InlineData("aaa", 1)]
+        [InlineData("a a a", 1)]
+        [InlineData("a\na\n\ta", 1)]
+        public void CountAllAsOne(string input, int expected)
+        {
+            var d = new AllQuestionsAnyone();
+            var actual = d.CountGroup(input);
+            
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("Day06.Example.txt", 11)]
+        public void CountAllQuestionsAnyone(string filename, int expected)
+        {
+            var d6 = new AllQuestionsAnyone();
+            var actual = d6.Count(filename);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(" a b c", 1)]
+        [InlineData("abc", 1)]
+        [InlineData("a\nb\nc", 3)]
+        [InlineData("ab\nac", 2)]
+        [InlineData("a\na\na\na", 4)]
+        [InlineData("b", 1)]
+        public void SplitGroupsIntoIndividualsEveryone(string input, int expected)
+        {
+            var d6 = new AllQuestionsEveryone();
+            var actual = d6.SplitGroupIntoIndividuals(input).Count();
+            Assert.Equal(expected, actual);
+        }
+        
+        [Theory]
+        [InlineData("abc", 3)]
+        [InlineData("a\nb\nc", 0)]
+        [InlineData("ab\nac", 1)]
+        [InlineData("a\na\na\na", 1)]
+        [InlineData("b", 1)]
+        public void CountAllQuestionsSingleGroupEveryone(string input, int expected)
+        {
+            var d6 = new AllQuestionsEveryone();
+            var actual = d6.CountGroup(input);
+            Assert.Equal(expected, actual);
+        }
+        
+        [Theory]
+        [InlineData("Day06.Example.txt", 6)]
+        public void CountAllQuestionsEveryone(string filename, int expected)
+        {
+            var d6 = new AllQuestionsEveryone();
+            var actual = d6.Count(filename);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }
