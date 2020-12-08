@@ -1,0 +1,33 @@
+﻿using System;
+
+namespace AdventOfCode.Domain.Day08
+{
+    public class Instruction
+    {
+        public Operation Operation { get; set; }
+        public string Operand { get; set; }
+        public int Value { get; set; }
+
+        public Instruction(string operation, string operand, int value)
+        {
+            Operation = ParseOperation(operation);
+            Operand = operand;
+            Value = value;
+        }
+
+        private Operation ParseOperation(string op)
+        {
+            switch (op)
+            {
+                case "nop":
+                    return Operation.nop;
+                case "jmp":
+                    return Operation.jmp;
+                case "acc":
+                    return Operation.acc;
+                default:
+                    throw new ArgumentException($"Not a defined operation: {op}");
+            }
+        }
+    }
+}
