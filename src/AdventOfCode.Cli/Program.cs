@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AdventOfCode.Domain;
-using AdventOfCode.Domain.Day03;
-using AdventOfCode.Domain.Day04;
-using AdventOfCode.Domain.Day05;
+using AdventOfCode.Domain.Day06;
 
 namespace AdventOfCode.Cli
 {
@@ -13,9 +8,10 @@ namespace AdventOfCode.Cli
         private static void Main(string[] args)
         {
             var filename = args[0];
-            
-            var dayRunner = new Day05Runner();
-            dayRunner.RunP1(filename);
+
+            var d6 = new AllQuestionsEveryone();
+            var actual = d6.Count(filename);
+            Console.WriteLine(actual);
         }
     }
 }
