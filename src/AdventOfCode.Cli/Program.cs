@@ -1,5 +1,6 @@
 ﻿using System;
 using AdventOfCode.Domain.Day06;
+using AdventOfCode.Domain.Day07;
 
 namespace AdventOfCode.Cli
 {
@@ -8,10 +9,9 @@ namespace AdventOfCode.Cli
         private static void Main(string[] args)
         {
             var filename = args[0];
-
-            var d6 = new AllQuestionsEveryone();
-            var actual = d6.Count(filename);
-            Console.WriteLine(actual);
+            var day07 = new Day07(filename);
+            Console.WriteLine(day07.Solve_1());
+            Console.WriteLine(day07.Solve_2());
         }
     }
 }
