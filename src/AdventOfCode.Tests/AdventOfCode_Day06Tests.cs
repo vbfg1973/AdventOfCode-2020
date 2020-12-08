@@ -15,5 +15,25 @@ namespace AdventOfCode.Tests
             
             Assert.Equal(expectedCount, groups.Count());
         }
+
+        [Theory]
+        [InlineData("a b c", "abc")]
+        [InlineData("a b\nc", "abc")]
+        [InlineData("a\n\tb\nc", "abc")]
+        public void StripWhiteSpace(string input, string expected)
+        {
+            var res = StringUtils.StripAllWhiteSpace(input);
+            Assert.Equal(expected, res);
+        }
+        
+        [Theory]
+        [InlineData("a b c", "abc")]
+        [InlineData("a b\nc", "ab\nc")]
+        [InlineData("a\n\tb\nc", "a\nb\nc")]
+        public void StripWhiteSpaceExceptNewlines(string input, string expected)
+        {
+            var res = StringUtils.StripAllWhiteSpaceExceptNewlines(input);
+            Assert.Equal(expected, res);
+        }
     }
 }
