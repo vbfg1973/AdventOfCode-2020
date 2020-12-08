@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace AdventOfCode.Domain.Day06
 {
@@ -25,17 +23,11 @@ namespace AdventOfCode.Domain.Day06
             var dict = new Dictionary<char, int>();
 
             foreach (var c in s)
-            {
                 if (dict.ContainsKey(c))
-                {
                     dict[c]++;
-                }
 
                 else
-                {
                     dict[c] = 1;
-                }
-            }
 
             return dict.Keys.Count();
         }

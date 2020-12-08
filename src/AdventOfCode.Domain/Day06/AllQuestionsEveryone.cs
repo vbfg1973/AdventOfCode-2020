@@ -24,20 +24,12 @@ namespace AdventOfCode.Domain.Day06
 
             var dict = new Dictionary<char, int>();
             foreach (var individual in individuals)
-            {
-                foreach (var c in individual)
-                {
-                    if (dict.ContainsKey(c))
-                    {
-                        dict[c]++;
-                    }
+            foreach (var c in individual)
+                if (dict.ContainsKey(c))
+                    dict[c]++;
 
-                    else
-                    {
-                        dict[c] = 1;
-                    }
-                }
-            }
+                else
+                    dict[c] = 1;
 
             return dict.Values.Count(x => x == individualCount);
         }

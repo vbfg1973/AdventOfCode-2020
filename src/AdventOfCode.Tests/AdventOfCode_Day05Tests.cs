@@ -40,7 +40,7 @@ namespace AdventOfCode.Tests
         public void ColNumber(string sequence, int expectedResult)
         {
             var res = Day05ExtensionMethods.ColumnNumber(sequence);
-            
+
             Assert.Equal(expectedResult, res);
         }
 
@@ -49,7 +49,7 @@ namespace AdventOfCode.Tests
         public void SeatNumber(string s, int expectedResult)
         {
             var res = Day05ExtensionMethods.SeatNumber(s);
-            
+
             Assert.Equal(res, expectedResult);
         }
     }

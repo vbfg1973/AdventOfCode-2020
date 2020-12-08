@@ -63,7 +63,7 @@ namespace AdventOfCode.Tests
             var validator = new Validator();
             Assert.Equal(expectedCount, validator.ParsePassports(fileName).Count());
         }
-        
+
         [Theory]
         [InlineData("Day04.Example.txt", 2)]
         public void CountOfPassportsInFileIsCorrect(string fileName, int expectedCount)

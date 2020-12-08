@@ -25,10 +25,7 @@ namespace AdventOfCode.Domain
                 }
             }
 
-            if (buffer.Any())
-            {
-                yield return string.Join("\n", buffer);
-            }
+            if (buffer.Any()) yield return string.Join("\n", buffer);
         }
     }
 }

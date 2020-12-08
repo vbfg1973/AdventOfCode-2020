@@ -21,7 +21,7 @@ namespace AdventOfCode.Domain.Day05
         {
             T[] first;
             T[] second;
-            
+
             SplitMidPoint(enumerable.ToArray(), out first, out second);
             switch (c)
             {
@@ -33,12 +33,12 @@ namespace AdventOfCode.Domain.Day05
                     throw new ArgumentException();
             }
         }
-        
+
         public static IEnumerable<T> GetColHalf<T>(this IEnumerable<T> enumerable, char c)
         {
             T[] first;
             T[] second;
-            
+
             SplitMidPoint(enumerable.ToArray(), out first, out second);
             switch (c)
             {
@@ -54,13 +54,10 @@ namespace AdventOfCode.Domain.Day05
         public static int RowNumber(string s)
         {
             var range = Enumerable.Range(0, 128);
-        
+
             var rowDirections = s.Take(7);
-        
-            foreach (var direction in rowDirections)
-            {
-                range = range.GetRowHalf(direction);
-            }
+
+            foreach (var direction in rowDirections) range = range.GetRowHalf(direction);
 
             return range.First();
         }
@@ -69,18 +66,15 @@ namespace AdventOfCode.Domain.Day05
         {
             var range = Enumerable.Range(0, 8);
             var colDirections = s.Skip(Math.Max(0, s.Count() - 3));
-            
-            foreach (var direction in colDirections)
-            {
-                range = range.GetColHalf(direction);
-            }
+
+            foreach (var direction in colDirections) range = range.GetColHalf(direction);
 
             return range.First();
         }
 
         public static int SeatNumber(string s)
         {
-            return (Day05ExtensionMethods.RowNumber(s) * 8) + Day05ExtensionMethods.ColumnNumber(s);
+            return RowNumber(s) * 8 + ColumnNumber(s);
         }
     }
 }

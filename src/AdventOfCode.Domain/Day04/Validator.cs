@@ -7,14 +7,14 @@ namespace AdventOfCode.Domain.Day04
 {
     public class PassportField
     {
-        public string Code { get; }
-        public string Value { get; }
-
         public PassportField(string code, string value)
         {
             Code = code.Trim().ToUpper();
             Value = value;
         }
+
+        public string Code { get; }
+        public string Value { get; }
     }
 
     public class Validator
@@ -27,10 +27,7 @@ namespace AdventOfCode.Domain.Day04
 
         public PassportField ExtractPassportField(string str)
         {
-            if (!str.Contains(':'))
-            {
-                throw new ArgumentException("String cannot be converted to a Passport Field");
-            }
+            if (!str.Contains(':')) throw new ArgumentException("String cannot be converted to a Passport Field");
 
             var strArray = str.Split(':');
             return new PassportField(strArray[0], strArray[1]);
@@ -58,7 +55,7 @@ namespace AdventOfCode.Domain.Day04
 
         public int CountValid(string rawPassports)
         {
-            int runningTotal = 0;
+            var runningTotal = 0;
             foreach (var parsedPassport in ParsePassports(rawPassports))
             {
             }
@@ -68,8 +65,8 @@ namespace AdventOfCode.Domain.Day04
 
         public bool IsValid(IEnumerable<PassportField> passportFields)
         {
-            IEnumerable<string> requiredFields = new string[] {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"};
-            IEnumerable<string> validEcl = new string[] {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"};
+            IEnumerable<string> requiredFields = new[] {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"};
+            IEnumerable<string> validEcl = new[] {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"};
 
             requiredFields = requiredFields.Select(str => str.Trim().ToUpper());
             var cnt = passportFields.Count(ppf => requiredFields.Contains(ppf.Code));

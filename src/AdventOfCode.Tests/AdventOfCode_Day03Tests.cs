@@ -30,7 +30,7 @@ namespace AdventOfCode.Tests
             map.Right();
             Assert.Equal(expected, map.X());
         }
-        
+
         [Theory]
         [InlineData(3, 3, 1, 2)]
         [InlineData(3, 3, 2, 3)]
@@ -40,9 +40,9 @@ namespace AdventOfCode.Tests
             var map = GenerateMap(width, height);
             map.X(start);
 
-            var commands = new List<Movement>() {Movement.Right};
+            var commands = new List<Movement> {Movement.Right};
             map.MovementCommand(commands);
-            
+
             Assert.Equal(expected, map.X());
         }
 
@@ -57,7 +57,7 @@ namespace AdventOfCode.Tests
             map.Left();
             Assert.Equal(expected, map.X());
         }
-        
+
         [Theory]
         [InlineData(3, 3, 3, 2)]
         [InlineData(3, 3, 2, 1)]
@@ -66,10 +66,10 @@ namespace AdventOfCode.Tests
         {
             var map = GenerateMap(width, height);
             map.X(start);
-            
-            var commands = new List<Movement>() {Movement.Left};
+
+            var commands = new List<Movement> {Movement.Left};
             map.MovementCommand(commands);
-            
+
             Assert.Equal(expected, map.X());
         }
 
@@ -83,7 +83,7 @@ namespace AdventOfCode.Tests
             map.Down();
             Assert.Equal(expected, map.Y());
         }
-        
+
         [Theory]
         [InlineData(3, 3, 1, 2)]
         [InlineData(3, 3, 2, 3)]
@@ -91,10 +91,10 @@ namespace AdventOfCode.Tests
         {
             var map = GenerateMap(width, height);
             map.Y(start);
-            
-            var commands = new List<Movement>() {Movement.Down};
+
+            var commands = new List<Movement> {Movement.Down};
             map.MovementCommand(commands);
-            
+
             Assert.Equal(expected, map.Y());
         }
 
@@ -109,7 +109,7 @@ namespace AdventOfCode.Tests
             var response = map.Down();
             Assert.Equal(expected, response);
         }
-        
+
         [Theory]
         [InlineData(3, 3, 1, true)]
         [InlineData(3, 3, 2, true)]
@@ -118,13 +118,13 @@ namespace AdventOfCode.Tests
         {
             var map = GenerateMap(width, height);
             map.Y(start);
-            
-            var commands = new List<Movement>() {Movement.Down};
+
+            var commands = new List<Movement> {Movement.Down};
             var response = map.MovementCommand(commands);
-            
+
             Assert.Equal(expected, response);
         }
-        
+
         [Theory]
         [InlineData("Day03.Trees.Part01.txt", 1, 1, Terrain.Open)]
         [InlineData("Day03.Trees.Part01.txt", 2, 1, Terrain.Open)]
@@ -140,7 +140,7 @@ namespace AdventOfCode.Tests
             map.Y(y);
             Assert.Equal(expectedTerrain, map.TerrainAtPosition());
         }
-        
+
         [Theory]
         [InlineData("Day03.Trees.Part01.txt", 0, 1, 1, 2)]
         [InlineData("Day03.Trees.Part01.txt", 0, 3, 1, 7)]
@@ -158,10 +158,10 @@ namespace AdventOfCode.Tests
             commands.AddRange(Enumerable.Repeat(Movement.Down, down));
 
             var actualTrees = map.CountTreesFollowingMovements(commands);
-            
+
             Assert.Equal(expectedTrees, actualTrees);
         }
-        
+
         private Map GenerateMap(int width, int height)
         {
             var list = new List<string>();

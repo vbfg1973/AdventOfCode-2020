@@ -10,7 +10,7 @@ namespace AdventOfCode.Domain
 
             return s;
         }
-        
+
         public static string StripAllWhiteSpaceExceptNewlines(string s)
         {
             s = Regex.Replace(s, "[^\\S+\\r\\n]", "");

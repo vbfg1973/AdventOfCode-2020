@@ -12,7 +12,7 @@ namespace AdventOfCode.Tests
         public void FileSplitsIntoCorrectNumberGroups(string filename, int expectedCount)
         {
             var groups = FileUtils.SplitFileByBlankLines(filename);
-            
+
             Assert.Equal(expectedCount, groups.Count());
         }
 
@@ -25,7 +25,7 @@ namespace AdventOfCode.Tests
             var res = StringUtils.StripAllWhiteSpace(input);
             Assert.Equal(expected, res);
         }
-        
+
         [Theory]
         [InlineData("a b c", "abc")]
         [InlineData("a b\nc", "ab\nc")]
@@ -47,7 +47,7 @@ namespace AdventOfCode.Tests
         {
             var d = new AllQuestionsAnyone();
             var actual = d.CountGroup(input);
-            
+
             Assert.Equal(expected, actual);
         }
 
@@ -74,7 +74,7 @@ namespace AdventOfCode.Tests
             var actual = d6.SplitGroupIntoIndividuals(input).Count();
             Assert.Equal(expected, actual);
         }
-        
+
         [Theory]
         [InlineData("abc", 3)]
         [InlineData("a\nb\nc", 0)]
@@ -87,7 +87,7 @@ namespace AdventOfCode.Tests
             var actual = d6.CountGroup(input);
             Assert.Equal(expected, actual);
         }
-        
+
         [Theory]
         [InlineData("Day06.Example.txt", 6)]
         public void CountAllQuestionsEveryone(string filename, int expected)
