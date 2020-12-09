@@ -11,7 +11,7 @@ namespace AdventOfCode.Cli
             var filename = args[0];
             var day07 = new Day07(filename);
             Console.WriteLine(day07.Solve_1());
-            Console.WriteLine(day07.Solve_2())
+            Console.WriteLine(day07.Solve_2());
         }
     }
 }

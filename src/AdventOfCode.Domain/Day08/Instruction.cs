@@ -4,15 +4,22 @@ namespace AdventOfCode.Domain.Day08
 {
     public class Instruction
     {
-        public Operation Operation { get; set; }
-        public string Operand { get; set; }
-        public int Value { get; set; }
+        public Operation Operation { get; }
+        public string Operand { get; }
+        public int Value { get; }
+        public int Runs { get; private set; }
 
         public Instruction(string operation, string operand, int value)
         {
             Operation = ParseOperation(operation);
             Operand = operand;
             Value = value;
+            Runs = 0;
+        }
+
+        public void AddRun()
+        {
+            Runs++;
         }
 
         private Operation ParseOperation(string op)
